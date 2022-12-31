@@ -14,3 +14,10 @@ export const DELETE_POST = gql`
     deletePost(id: $id)
   }
 `;
+export const UPDATE_POST = gql`
+  mutation UpdatePost($id: String!, $title: String!, $description: String!) {
+    updateUser(id: $id, data: { title: $title, description: $description }) {
+      id
+    }
+  }
+`;

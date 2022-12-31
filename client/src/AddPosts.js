@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useMutation } from "@apollo/client";
 import { CREATE_POST } from "./GraphQL/Mutation";
+import PostList from "./PostList";
 const AddPosts = () => {
   const [createPost, { loading, err }] = useMutation(CREATE_POST);
   const [title, setTitle] = useState(null);
@@ -19,7 +20,7 @@ const AddPosts = () => {
       <div className="container">
         <div className="row">
           {err && "Error"}
-          <div className="col-8 mx-auto card p-5 mt-5 mb-5 shadow">
+          <div className="col-8 mx-auto card p-5 mt-5 mb-5 shadow-sm">
             <div className="mb-3">
               <label htmlFor="title" className="form-label">
                 Title
@@ -52,6 +53,7 @@ const AddPosts = () => {
           </div>
         </div>
       </div>
+      <PostList />
     </>
   );
 };
